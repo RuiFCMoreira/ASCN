@@ -1,3 +1,7 @@
 ---
 # Playbook to undeploy Ghost and its component
 # TO DO
+- name: Undeploy Ghost
+  hosts: localhost
+  roles:
+      - undeploy_ghost_app

@@ -4,5 +4,6 @@
 - name: Deploy Ghost
   hosts: localhost
   roles:
+      - ghost_db
       - ghost_app
   

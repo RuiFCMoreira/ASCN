@@ -1,0 +1,4 @@
+---
+
+- name: Undeploy Ghost app
+  shell: kubectl delete deployment ghost-deployment
