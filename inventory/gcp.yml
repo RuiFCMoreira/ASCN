@@ -3,7 +3,7 @@ all:
  vars:
 
   # GKE cluster variables
-  gcp_project: ascn2023             # ID of GCP Project
+  gcp_project: ascn2023-372213              # ID of GCP Project
   gcp_auth_kind: serviceaccount            # Do not change
   gcp_cred_file: credentials.json # Path to service account keys (json file downloaded from GCP)
 
