@@ -1,0 +1,18 @@
+---
+# Service for exposing Ghost
+apiVersion: v1
+kind: Service
+metadata:
+  name: ghost-service
+  namespace: default
+  labels:
+    app: ghost
+spec:
+  type: LoadBalancer # Makes the service accessible on a static port on each Node in the cluster.
+  selector:
+    app: ghost
+  ports:
+    - protocol: TCP
+      targetPort: 2368 # port that containers are listening on
+      port: 80 # port exposed internally in the cluster
+    #  nodePort: 30007 # a static port assigned on each the node
