@@ -8,8 +8,6 @@ metadata:
   labels:
     app: mysql
     tier: database
-
-
 spec:
   type: ClusterIP
   selector:

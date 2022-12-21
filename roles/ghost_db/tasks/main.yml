@@ -14,4 +14,20 @@
     state: present
     src: mysql/mysql-service.yml
 
+#depois resolver isto -- talvez passar para outro lado
+- name: wait for container creation
+  shell: sleep 10
+  register: mysqlpod
+
+
+- name: Get MySQL Pod Name
+  shell: kubectl get pods -l tier=database |awk '{ print $1}' | grep -v NAME
+  register: mysqlpod
+
+- name: Add Admin User
+  shell: kubectl exec -it {{mysqlpod.stdout}}   -- bash -c "mysql -u ghostuser -pola ghost -e \"update users set name='admin', password='\\\$2b\\\$10\\\$iWbiCH6IdJ1F2oAgKyJNRObuet.PKqRr.Ah9AhEMma4IOqiv6EBSe', email='bernardosaraiva1503@gmail.com', status='active' where id=1;\""
+
+  
+
+
  

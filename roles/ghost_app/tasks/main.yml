@@ -1,13 +1,26 @@
-- name: Create Ghost
-  kubernetes.core.k8s:
-    state: present
-    src: ghost/ghost-deployment.yml
-
 - name: Service Ghost
   kubernetes.core.k8s:
     state: present
     src: ghost/ghost-service.yml
 
 
+- name: Wait for Ghost Service External IP
+  shell: "kubectl get services ghost-service -o wide | awk '{ print $4}' |  grep -v EXT"
+  register: k_ext_ip
+  until: k_ext_ip.stdout[0].isdigit() != False
+  retries: 6
+  delay: 10
 
+- name: Get Ghost IP 
+  set_fact:
+    ghost_ip: "{{k_ext_ip.stdout}}"
+  
+
+- name: Update ghost_ip
+  template: src=ghost-template dest=ghost/ghost-deployment.yml
+
+- name: Create Ghost
+  kubernetes.core.k8s:
+    state: present
+    src: ghost/ghost-deployment.yml
 
