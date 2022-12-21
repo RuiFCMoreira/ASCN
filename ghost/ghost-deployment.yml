@@ -32,8 +32,8 @@ spec:
         - name: database__connection__host
           value: mysql-service 
         - name : ghost__host
-          value: 34.122.129.168
+          value: 35.194.1.96
         - name : url
-          value: http://34.122.129.168
+          value: http://35.194.1.96
         ports:
         - containerPort: 2368
