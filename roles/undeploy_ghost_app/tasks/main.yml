@@ -1,0 +1,7 @@
+---
+
+- name: Delete Ghost Deployment
+  shell: kubectl delete deployment ghost-deployment
+
+- name: Delete Ghost Service
+  shell: kubectl delete svc ghost-service

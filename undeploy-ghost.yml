@@ -5,3 +5,4 @@
   hosts: localhost
   roles:
       - undeploy_ghost_app
+      - {role: undeploy_ghost_db, when: "delete_data is defined and delete_data == 'true'"}
