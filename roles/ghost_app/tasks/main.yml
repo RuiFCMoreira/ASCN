@@ -11,13 +11,25 @@
   retries: 6
   delay: 10
 
+
 - name: Get Ghost IP 
   set_fact:
     ghost_ip: "{{k_ext_ip.stdout}}"
-  
 
-- name: Update ghost_ip
+- name: Get Ghost Port Output
+  shell : kubectl get services ghost-service -o wide | awk '{ print $5}' |  grep -v PORT | sed 's/:.\+//g'
+  register: ghost_port_aux
+
+- name: Get Ghost Port
+  set_fact:
+    ghost_port: "{{ghost_port_aux.stdout}}"
+  
+- name: Update ghost_ip in deployment
   template: src=ghost-template dest=ghost/ghost-deployment.yml
+
+- name: Update Ghost ip and port in iventory
+  template: src=gcp-template dest=inventory/gcp.yml
+
 
 - name: Create Ghost
   kubernetes.core.k8s:
