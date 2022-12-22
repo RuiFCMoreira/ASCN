@@ -5,3 +5,9 @@
 
 - name: Delete Ghost Service
   shell: kubectl delete svc ghost-service
+
+- name: Delete mySQL Deployment
+  shell: kubectl delete deployment mysql-deployment
+
+- name: Delete mySQL Service
+  shell: kubectl delete svc mysql-service
