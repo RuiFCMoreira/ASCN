@@ -1,7 +1,4 @@
 ---
 
-- name: Delete mySQL Deployment
-  shell: kubectl delete deployment mysql-deployment
-
-- name: Delete mySQL Service
-  shell: kubectl delete svc mysql-service
+- name: Delete pvc
+  shell: kubectl delete pvc mysql-pv-claim

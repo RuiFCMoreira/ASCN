@@ -1,0 +1,18 @@
+- name: Install Metrics Dashboard
+  shell : gcloud monitoring dashboards create --config-from-file=dashboard.json
+  register: ghost_port_aux
+
+- name: Get First Node
+  shell : kubectl get nodes |  awk '{ print $1}' | grep -v NAME | sed -n '1p'
+  register: firstNode
+
+- name: Get Second Node
+  shell : kubectl get nodes |  awk '{ print $1}' | grep -v NAME | sed -n '2p'
+  register: secondNode
+
+
+- name: Install Agent in first default Node
+  shell : :> agents_to_install.csv && \echo '"projects/{{gcp_project}}/zones/{{gcp_zone}}/instances/{{firstNode.stdout}}","[{""type"":""ops-agent""}]"' >> agents_to_install.csv && \curl -sSO https://dl.google.com/cloudagents/mass-provision-google-cloud-ops-agents.py && \python3 mass-provision-google-cloud-ops-agents.py --file agents_to_install.csv
+
+- name: Install Agent in second default Node
+  shell : :> agents_to_install.csv && \echo '"projects/{{gcp_project}}/zones/{{gcp_zone}}/instances/{{secondNode.stdout}}","[{""type"":""ops-agent""}]"' >> agents_to_install.csv && \curl -sSO https://dl.google.com/cloudagents/mass-provision-google-cloud-ops-agents.py && \python3 mass-provision-google-cloud-ops-agents.py --file agents_to_install.csv
