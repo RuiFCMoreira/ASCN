@@ -35,5 +35,20 @@ spec:
           value: {{ghost_ip}}
         - name : url
           value: http://{{ghost_ip}}
+        - name: mail__transport
+          value: "SMTP"
+        - name: mail__options__service
+          value: "Google"
+        - name: mail__options__host
+          value: "smtp.mailgun.org"
+        - name: mail__options__auth__user
+          value: "ghostgrupo25@gmail.com"
+        - name: mail__options__auth__pass
+          value: "efnsedohwfayjrhy"
+        - name: mail__options__secure
+          value: "true"
+        - name: mail__options__port
+          value: "587"
         ports:
         - containerPort: 2368
+    
