@@ -9,6 +9,10 @@ metadata:
     app: ghost
 spec:
   type: LoadBalancer # Makes the service accessible on a static port on each Node in the cluster.
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 600
   selector:
     app: ghost
   ports:
