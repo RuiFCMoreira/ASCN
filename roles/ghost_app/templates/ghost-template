@@ -23,6 +23,8 @@ spec:
       - name: ghost
         image: ghost:5.14.1
         env: # The variables below could be set on a ConfigMap object
+        - name: NODE_ENV
+          value: production
         - name: database__connection__database 
           value: ghost
         - name: database__connection__user
@@ -38,17 +40,13 @@ spec:
         - name: mail__transport
           value: "SMTP"
         - name: mail__options__service
-          value: "Google"
+          value: "Mailgun"
         - name: mail__options__host
           value: "smtp.mailgun.org"
         - name: mail__options__auth__user
-          value: "ghostgrupo25@gmail.com"
+          value: {{mail_user}}
         - name: mail__options__auth__pass
-          value: "efnsedohwfayjrhy"
-        - name: mail__options__secure
-          value: "true"
-        - name: mail__options__port
-          value: "587"
+          value: {{mail_password}}
         ports:
         - containerPort: 2368
     

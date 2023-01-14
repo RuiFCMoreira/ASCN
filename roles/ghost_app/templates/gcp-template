@@ -21,3 +21,5 @@ all:
 
   # Additional variables
   # ...
+  mail_user:  postmaster@sandbox735cbd3e586741a9aa7f508e056c68f2.mailgun.org
+  mail_password: c4e9dff20221c3881188f13dfb595da8-4c2b2223-94a9980e
