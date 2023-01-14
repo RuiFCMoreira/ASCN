@@ -32,25 +32,23 @@ spec:
         - name: database__connection__host
           value: mysql-service 
         - name : ghost__host
-          value: 34.72.137.209
+          value: 34.123.223.190
         - name : url
-          value: http://34.72.137.209
+          value: http://34.123.223.190
         - name: mail__transport
           value: "SMTP"
         - name: mail__options__service
-          value: "Mailtrap"
+          value: "Google"
         - name: mail__options__host
-          value: "smtp.mailtrap.io"
+          value: "smtp.mailgun.org"
         - name: mail__options__auth__user
-          value: "69be00e4f51385"
+          value: "ghostgrupo25@gmail.com"
         - name: mail__options__auth__pass
-          value: "383cd8e1fbc5d6"
+          value: "efnsedohwfayjrhy"
         - name: mail__options__secure
           value: "true"
         - name: mail__options__port
-          value: "2525"
-        - name: mail__from
-          value: "Grupo25 <ASCN_25@gmail.com>"
+          value: "587"
         ports:
         - containerPort: 2368
     
