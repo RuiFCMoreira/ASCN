@@ -38,17 +38,19 @@ spec:
         - name: mail__transport
           value: "SMTP"
         - name: mail__options__service
-          value: "Google"
+          value: "Mailtrap"
         - name: mail__options__host
-          value: "smtp.mailgun.org"
+          value: "smtp.mailtrap.io"
         - name: mail__options__auth__user
-          value: "ghostgrupo25@gmail.com"
+          value: "69be00e4f51385"
         - name: mail__options__auth__pass
-          value: "efnsedohwfayjrhy"
+          value: "383cd8e1fbc5d6"
         - name: mail__options__secure
           value: "true"
         - name: mail__options__port
-          value: "587"
+          value: "2525"
+        - name: mail__from
+          value: "Grupo25 <ASCN_25@gmail.com>"
         ports:
         - containerPort: 2368
     
