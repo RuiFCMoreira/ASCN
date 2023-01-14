@@ -15,9 +15,11 @@ all:
 
 
   # APP variables
-  ghost_ip: 34.72.137.209    # Needs to be updated
-  ghost_port: 80        # Needs to be updated
+  ghost_ip: 34.123.107.20    # Needs to be updated
+  ghost_port: 80:32281/TCP        # Needs to be updated
 
 
   # Additional variables
   # ...
+  mail_user:  postmaster@sandbox735cbd3e586741a9aa7f508e056c68f2.mailgun.org
+  mail_password: c4e9dff20221c3881188f13dfb595da8-4c2b2223-94a9980e
