@@ -1,0 +1,2 @@
+- name: Scale Ghost
+  shell: "kubectl scale deployment ghost-deployment --replicas=2"

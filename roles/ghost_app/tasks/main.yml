@@ -36,3 +36,5 @@
     state: present
     src: ghost/ghost-deployment.yml
 
+- name: Delete ghost dir
+  shell: rm ghost/ghost-deployment.yml

@@ -3,6 +3,8 @@
 # TO DO
 - name: Deploy Ghost
   hosts: localhost
+  vars_files:
+      - mail_secrets.yml
   roles:
       - ghost_db
       - ghost_app

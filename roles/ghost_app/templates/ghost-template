@@ -44,7 +44,7 @@ spec:
         - name: mail__options__host
           value: "smtp.mailgun.org"
         - name: mail__options__auth__user
-          value: {{mail_user}}
+          value: postmaster@sandboxeefe89f202c8488bb5f2aa8554a842ba.mailgun.org
         - name: mail__options__auth__pass
           value: {{mail_password}}
         ports:
