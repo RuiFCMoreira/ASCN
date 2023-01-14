@@ -1,0 +1,11 @@
+---
+- name: Scale deployment
+  hosts: localhost
+  gather_facts: no
+  vars_prompt:
+    - name: "replica_count"
+      prompt: "Enter the number of replicas:"
+      private: no
+  tasks:
+    - name: Scale deployment
+      command: kubectl scale deployment ghost-deployment --replicas={{ replica_count }}
